@@ -29,7 +29,7 @@ public class MainActivity extends DrawerActivity {
 
 		// Location
 		stringBuilder.append(" ")
-				.append(Environment.getExternalStorageDirectory().toString())
+				.append("sdcard")
 				.append("/recording.mp4");
 		Log.d("Launch", stringBuilder.toString());
 	}
