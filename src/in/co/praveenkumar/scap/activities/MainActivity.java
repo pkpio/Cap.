@@ -1,7 +1,13 @@
-package in.co.praveenkumar.scap;
+package in.co.praveenkumar.scap.activities;
 
-import in.co.praveenkumar.scap.extend.DrawerActivity;
+import in.co.praveenkumar.scap.R;
+import in.co.praveenkumar.scap.helpers.DrawerActivity;
+import in.co.praveenkumar.scap.helpers.SuTask;
+
+import java.io.UnsupportedEncodingException;
+
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -11,6 +17,25 @@ public class MainActivity extends DrawerActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		setContentView(R.layout.activity_main);
 		super.onCreate(savedInstanceState);
+
+		StringBuilder stringBuilder = new StringBuilder(
+				"/system/bin/screenrecord");
+
+		// stringBuilder.append(" --size ").append("1024x768");
+		stringBuilder.append(" --bit-rate ").append("8000000");
+		stringBuilder.append(" --time-limit ").append("30");
+
+		// Location
+		stringBuilder.append(" ")
+				.append(Environment.getExternalStorageDirectory().toString())
+				.append("/recording.mp4");
+		try {
+			new SuTask(stringBuilder.toString().getBytes("ASCII")).execute();
+
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+
 	}
 
 	@Override
