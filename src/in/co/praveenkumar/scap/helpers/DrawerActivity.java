@@ -1,4 +1,4 @@
-package in.co.praveenkumar.scap.extend;
+package in.co.praveenkumar.scap.helpers;
 
 import in.co.praveenkumar.scap.R;
 import android.app.Activity;
