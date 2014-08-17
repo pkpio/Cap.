@@ -33,7 +33,7 @@ public class DrawerActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		mTitle = "test";
 
-		mMenuItems = new String[] { "My Courses", "All Courses", "Favourites" };
+		mMenuItems = new String[] { "Profile0", "Profile1", "Profile2" };
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 		mDrawerList = (ListView) findViewById(R.id.left_nav_listview);
 		mDrawerView = (LinearLayout) findViewById(R.id.left_drawer);

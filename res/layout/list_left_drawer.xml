@@ -8,6 +8,6 @@
     android:gravity="center_vertical"
     android:orientation="vertical"
     android:padding="15dp"
-    android:text="My Courses"
+    android:text="Profiles"
     android:textColor="@color/black"
     android:textSize="20sp" />
