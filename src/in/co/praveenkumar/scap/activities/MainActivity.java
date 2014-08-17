@@ -8,6 +8,7 @@ import java.io.UnsupportedEncodingException;
 
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -30,6 +31,7 @@ public class MainActivity extends DrawerActivity {
 		stringBuilder.append(" ")
 				.append(Environment.getExternalStorageDirectory().toString())
 				.append("/recording.mp4");
+		Log.d("Launch", stringBuilder.toString());
 	}
 
 	@Override
@@ -41,9 +43,6 @@ public class MainActivity extends DrawerActivity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
 			return true;
@@ -53,6 +52,7 @@ public class MainActivity extends DrawerActivity {
 
 	public void record(View v) {
 		try {
+			Log.d("RecordCommand", stringBuilder.toString());
 			new SuTask(stringBuilder.toString().getBytes("ASCII")).execute();
 
 		} catch (UnsupportedEncodingException e) {
