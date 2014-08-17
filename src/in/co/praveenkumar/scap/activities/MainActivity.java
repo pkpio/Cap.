@@ -10,16 +10,17 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class MainActivity extends DrawerActivity {
+	StringBuilder stringBuilder;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		setContentView(R.layout.activity_main);
 		super.onCreate(savedInstanceState);
 
-		StringBuilder stringBuilder = new StringBuilder(
-				"/system/bin/screenrecord");
+		stringBuilder = new StringBuilder("/system/bin/screenrecord");
 
 		// stringBuilder.append(" --size ").append("1024x768");
 		stringBuilder.append(" --bit-rate ").append("8000000");
@@ -29,13 +30,6 @@ public class MainActivity extends DrawerActivity {
 		stringBuilder.append(" ")
 				.append(Environment.getExternalStorageDirectory().toString())
 				.append("/recording.mp4");
-		try {
-			new SuTask(stringBuilder.toString().getBytes("ASCII")).execute();
-
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
-
 	}
 
 	@Override
@@ -55,5 +49,15 @@ public class MainActivity extends DrawerActivity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	public void record(View v) {
+		try {
+			new SuTask(stringBuilder.toString().getBytes("ASCII")).execute();
+
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+
 	}
 }

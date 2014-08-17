@@ -5,11 +5,19 @@
 
     <!-- The main content view -->
 
-    <FrameLayout
+    <LinearLayout
         android:id="@+id/content_frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
-    </FrameLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:clickable="true"
+            android:onClick="record"
+            android:text="Record" />
+    </LinearLayout>
 
     <!-- Left navigation drawer -->
 
@@ -29,6 +37,5 @@
             android:divider="@android:color/transparent"
             android:dividerHeight="0dp" />
     </LinearLayout>
-
 
 </android.support.v4.widget.DrawerLayout>
