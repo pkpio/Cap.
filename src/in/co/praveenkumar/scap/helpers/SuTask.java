@@ -20,8 +20,12 @@ public class SuTask extends AsyncTask<Boolean, Void, Boolean> {
 			 * -TODO- Add some delay before "su" command so the toast won't be
 			 * recorded.
 			 */
-			Process sh = Runtime.getRuntime().exec("su", null, null);
+			Process sh = Runtime.getRuntime().exec("su", null, null);			
 			OutputStream outputStream = sh.getOutputStream();
+
+			//avoid superuser toast recording
+			Thread.sleep(5000);
+			
 			outputStream.write(mCommand);
 			outputStream.flush();
 			outputStream.close();
