@@ -1,214 +1,296 @@
 <in.co.praveenkumar.scap.views.CustomDrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
     android:layout_width="wrap_content"
     android:layout_height="match_parent" >
 
     <!-- The main content view -->
 
-    <LinearLayout
+    <ScrollView
         android:id="@+id/content_frame"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_horizontal"
-        android:orientation="vertical" >
-
-        <!-- Video Quality -->
+        android:layout_height="match_parent" >
 
         <LinearLayout
-            android:layout_width="300dp"
-            android:layout_height="70dp"
-            android:layout_marginTop="20dp"
-            android:gravity="center_vertical"
-            android:orientation="vertical" >
+            android:layout_width="@dimen/main_view_width"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="20dp" >
+
+            <!-- Video Quality -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:orientation="horizontal"
+                    tools:ignore="UseCompoundDrawables" >
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:contentDescription="@string/video_quality_icon"
+                        android:src="@drawable/theaters" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:text="@string/video_quality_title"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp" >
+
+                    <TextView
+                        android:id="@+id/frame_rate_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:layout_alignParentRight="true"
+                        android:gravity="center_vertical"
+                        android:text="@string/video_quality_value" />
+
+                    <SeekBar
+                        android:id="@+id/seekBar1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toLeftOf="@id/frame_rate_text" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <!-- Resolution -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:orientation="horizontal"
+                    tools:ignore="UseCompoundDrawables" >
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:contentDescription="@string/resolution_icon"
+                        android:src="@drawable/photo_library" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:text="@string/resolution_title"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal"
+                    android:paddingLeft="40dp" >
+
+                    <EditText
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/resolution_height_hint"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:layout_width="20dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:text="@string/resolution_x" />
+
+                    <EditText
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/resolution_width_hint"
+                        android:textSize="13sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Audio -->
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center_vertical"
                 android:orientation="horizontal" >
 
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:contentDescription="reel_image"
-                    android:src="@drawable/theaters" />
+                    android:contentDescription="@string/audio_record_icon"
+                    android:src="@drawable/mic" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="200dp"
                     android:layout_height="30dp"
                     android:gravity="center_vertical"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
-                    android:text="Video Quality (bitrate)"
+                    android:text="@string/audio_record_title"
                     android:textStyle="bold" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:orientation="horizontal" >
-
-                <SeekBar
-                    android:id="@+id/seekBar1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="70" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="35dp"
-                    android:layout_weight="30"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:text="20 Mbps" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <!-- Resolution -->
-
-        <LinearLayout
-            android:layout_width="300dp"
-            android:layout_height="70dp"
-            android:layout_marginTop="20dp"
-            android:gravity="center_vertical"
-            android:orientation="vertical" >
+            <!-- Touch pointer -->
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center_vertical"
                 android:orientation="horizontal" >
 
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:contentDescription="resolution"
-                    android:src="@drawable/photo_library" />
+                    android:contentDescription="@string/touch_pointer_icon"
+                    android:src="@drawable/touch_icon" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="200dp"
                     android:layout_height="30dp"
                     android:gravity="center_vertical"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
-                    android:text="Output resolution"
+                    android:text="@string/touch_pointer_title"
                     android:textStyle="bold" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
             </LinearLayout>
+
+            <!-- Duration -->
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:gravity="center"
-                android:orientation="horizontal" >
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical" >
 
-                <EditText
-                    android:layout_width="70dp"
-                    android:layout_height="wrap_content"
-                    android:hint="height"
-                    android:textSize="13sp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:contentDescription="@string/duration_icon"
+                        android:src="@drawable/access_time" />
+
+                    <TextView
+                        android:layout_width="200dp"
+                        android:layout_height="30dp"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:text="@string/duration_title"
+                        android:textStyle="bold" />
+
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
 
                 <TextView
-                    android:layout_width="20dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:text="x" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="40dp"
+                    android:text="@string/duration_value" />
+            </LinearLayout>
 
-                <EditText
-                    android:layout_width="70dp"
-                    android:layout_height="wrap_content"
-                    android:hint="width"
-                    android:textSize="13sp" />
+            <!-- Filename -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    tools:ignore="UseCompoundDrawables" >
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:contentDescription="@string/filename_icon"
+                        android:src="@drawable/folder" />
+
+                    <TextView
+                        android:layout_width="200dp"
+                        android:layout_height="30dp"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:text="@string/filename_title"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:gravity="center_vertical|left"
+                    android:orientation="horizontal" >
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="@string/filename_value_hint"
+                        android:textSize="14sp"
+                        android:paddingLeft="146dp"
+                        android:layout_marginRight="30dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:paddingLeft="8dp"
+                        android:paddingBottom="2dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/filename_path" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/filename_extension"
+                        android:layout_gravity="right"
+                        android:gravity="center_vertical" />
+                </FrameLayout>
             </LinearLayout>
         </LinearLayout>
-
-        <!-- Audio -->
-
-        <LinearLayout
-            android:layout_width="300dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="20dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal" >
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:contentDescription="Audio"
-                android:src="@drawable/mic" />
-
-            <TextView
-                android:layout_width="200dp"
-                android:layout_height="30dp"
-                android:gravity="center_vertical"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:text="Audio recording"
-                android:textStyle="bold" />
-
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-
-        <!-- Touch pointer -->
-
-        <LinearLayout
-            android:layout_width="300dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="20dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal" >
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:contentDescription="touchpointer"
-                android:src="@drawable/touch_icon" />
-
-            <TextView
-                android:layout_width="200dp"
-                android:layout_height="30dp"
-                android:gravity="center_vertical"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:text="Touch pointer"
-                android:textStyle="bold" />
-
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-
-        <!-- Duration -->
-
-        <LinearLayout
-            android:layout_width="300dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="20dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal" >
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:contentDescription="duration"
-                android:src="@drawable/access_time" />
-
-            <TextView
-                android:layout_width="200dp"
-                android:layout_height="30dp"
-                android:gravity="center_vertical"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:text="Fixed duration"
-                android:textStyle="bold" />
-
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-    </LinearLayout>
+    </ScrollView>
 
     <!-- Left navigation drawer -->
 
