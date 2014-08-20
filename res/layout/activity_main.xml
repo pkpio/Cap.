@@ -12,12 +12,12 @@
         android:gravity="center_horizontal"
         android:orientation="vertical" >
 
-        <!-- Video quality -->
+        <!-- Video Quality -->
 
         <LinearLayout
             android:layout_width="300dp"
-            android:layout_height="60dp"
-            android:layout_margin="30dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="20dp"
             android:gravity="center_vertical"
             android:orientation="vertical" >
 
@@ -44,7 +44,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="35dp"
                 android:orientation="horizontal" >
 
                 <SeekBar
@@ -55,7 +55,7 @@
 
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_height="30dp"
+                    android:layout_height="35dp"
                     android:layout_weight="30"
                     android:gravity="center_vertical"
                     android:paddingLeft="10dp"
@@ -64,19 +64,14 @@
             </LinearLayout>
         </LinearLayout>
 
-        <!-- End of Video quality -->
-
-
-        <!-- Video quality -->
+        <!-- Resolution -->
 
         <LinearLayout
             android:layout_width="300dp"
-            android:layout_height="60dp"
-            android:layout_margin="30dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="20dp"
             android:gravity="center_vertical"
             android:orientation="vertical" >
-
-            <!-- Heading -->
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -86,7 +81,7 @@
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:contentDescription="reel_image"
+                    android:contentDescription="resolution"
                     android:src="@drawable/photo_library" />
 
                 <TextView
@@ -99,37 +94,120 @@
                     android:textStyle="bold" />
             </LinearLayout>
 
-            <!-- Setting -->
-
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="40dp"
+                android:gravity="center"
                 android:orientation="horizontal" >
 
                 <EditText
-                    android:layout_width="0dp"
-                    android:layout_height="30dp"
-                    android:layout_weight="40"
-                    android:text="height" />
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:hint="height"
+                    android:textSize="13sp" />
 
                 <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="30dp"
-                    android:layout_weight="20"
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:text="x" />
 
                 <EditText
-                    android:layout_width="0dp"
-                    android:layout_height="30dp"
-                    android:layout_weight="40"
-                    android:text="width" />
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:hint="width"
+                    android:textSize="13sp" />
             </LinearLayout>
         </LinearLayout>
 
-        <!-- End of Video quality -->
+        <!-- Audio -->
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:contentDescription="Audio"
+                android:src="@drawable/mic" />
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Audio recording"
+                android:textStyle="bold" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <!-- Touch pointer -->
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:contentDescription="touchpointer"
+                android:src="@drawable/touch_icon" />
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Touch pointer"
+                android:textStyle="bold" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <!-- Duration -->
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:contentDescription="duration"
+                android:src="@drawable/access_time" />
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Fixed duration"
+                android:textStyle="bold" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
     </LinearLayout>
 
     <!-- Left navigation drawer -->
