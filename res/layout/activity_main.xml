@@ -113,6 +113,7 @@
                         android:id="@+id/resolution_height"
                         android:layout_width="70dp"
                         android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
                         android:hint="@string/resolution_height_hint"
                         android:inputType="number"
                         android:textSize="13sp" />
@@ -129,6 +130,7 @@
                         android:id="@+id/resolution_width"
                         android:layout_width="70dp"
                         android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
                         android:hint="@string/resolution_width_hint"
                         android:inputType="number"
                         android:textSize="13sp" />

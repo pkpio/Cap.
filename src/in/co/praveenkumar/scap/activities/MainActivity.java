@@ -33,7 +33,8 @@ public class MainActivity extends DrawerActivity {
 
 	int bitrate;
 	String resolution;
-	int timeLimit = 60 * 60;
+	int timeLimit = 30;//60 * 60;
+	String fileName;
 
 	DisplayMetrics displayMetrics;
 
@@ -63,8 +64,8 @@ public class MainActivity extends DrawerActivity {
 		frameRateSeekBar.setOnSeekBarChangeListener(new frameRateListener());
 		Log.d("Test", displayMetrics.heightPixels + ", "
 				+ displayMetrics.widthPixels);
-		//resolutionHeightTextView.setText(displayMetrics.heightPixels);
-		//resolutionWidthTextView.setText(displayMetrics.widthPixels);
+		resolutionHeightTextView.setText(displayMetrics.heightPixels + "");
+		resolutionWidthTextView.setText(displayMetrics.widthPixels + "");
 	}
 
 	private class frameRateListener implements OnSeekBarChangeListener {
@@ -104,12 +105,18 @@ public class MainActivity extends DrawerActivity {
 			StringBuilder stringBuilder = new StringBuilder(
 					"/system/bin/screenrecord");
 
-			// stringBuilder.append(" --size ").append("1024x768");
-			stringBuilder.append(" --bit-rate ").append("8000000");
-			stringBuilder.append(" --time-limit ").append("30");
+			// Get values
+			resolution = resolutionWidthTextView.getText().toString() + "x"
+					+ resolutionHeightTextView.getText().toString();
+			fileName = fileNameEditText.getText().toString();
+
+			stringBuilder.append(" --size ").append(resolution);
+			stringBuilder.append(" --bit-rate ").append(bitrate * 1000000);
+			stringBuilder.append(" --time-limit ").append(timeLimit);
 
 			// Location
-			stringBuilder.append(" ").append("sdcard").append("/recording.mp4");
+			stringBuilder.append(" ").append("/sdcard/")
+					.append(fileName + ".mp4");
 			Log.d("Launch", stringBuilder.toString());
 			Log.d("RecordCommand", stringBuilder.toString());
 			new SuTask(stringBuilder.toString().getBytes("ASCII")).execute();
