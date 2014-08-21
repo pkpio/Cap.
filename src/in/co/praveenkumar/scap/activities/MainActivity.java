@@ -9,6 +9,7 @@ import in.co.praveenkumar.scap.views.CustomCheckBox.OnCheckBoxStateChangeListene
 import java.io.UnsupportedEncodingException;
 
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
@@ -84,8 +85,8 @@ public class MainActivity extends DrawerActivity {
 
 		@Override
 		public void OnCheckBoxStateChanged(boolean isChecked) {
-			// TODO Auto-generated method stub
-			Log.d("Stater", "State changed bro.");
+			Settings.System.putInt(getContentResolver(), "show_touches",
+					isChecked ? 1 : 0);
 
 		}
 	};
