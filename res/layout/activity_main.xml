@@ -134,7 +134,7 @@
             <in.co.praveenkumar.scap.views.CustomCheckBox
                 custom:name="@string/audio_record_title"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="wrap_content"
                 custom:defaultValue="true"
                 custom:icon="@drawable/mic"
                 custom:useSharedPrefs="false" />
@@ -144,7 +144,7 @@
             <in.co.praveenkumar.scap.views.CustomCheckBox
                 custom:name="@string/touch_pointer_title"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="wrap_content"
                 custom:defaultValue="true"
                 custom:icon="@drawable/touch_icon"
                 custom:useSharedPrefs="false" />
@@ -154,7 +154,7 @@
             <in.co.praveenkumar.scap.views.CustomCheckBox
                 custom:name="@string/duration_title"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="wrap_content"
                 custom:defaultValue="true"
                 custom:icon="@drawable/access_time"
                 custom:summaryOff="5 min 30 sec"
