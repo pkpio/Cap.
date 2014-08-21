@@ -32,6 +32,17 @@ public class CustomCheckBox extends RelativeLayout {
 	private boolean defaultValue = false;
 	private boolean useSharedPrefs = true;
 	private Drawable icon;
+	private OnCheckBoxStateChangeListener listener;
+
+	/**
+	 * Listner Interface to listen when checkbox state changes
+	 * 
+	 * @author manidesto
+	 * 
+	 */
+	public interface OnCheckBoxStateChangeListener {
+		public void OnCheckBoxStateChanged(boolean isChecked);
+	}
 
 	public CustomCheckBox(Context context) {
 		super(context);
@@ -81,10 +92,20 @@ public class CustomCheckBox extends RelativeLayout {
 			summaryOff = a
 					.getString(R.styleable.GlobalCheckBoxPreference_summaryOff);
 			icon = a.getDrawable(R.styleable.GlobalCheckBoxPreference_icon);
-			
+
 		} finally {
 			a.recycle();
 		}
+	}
+
+	/**
+	 * use this function to register to listen for checkbox state change
+	 * 
+	 * @param listener
+	 */
+	public void setOnCheckBoxStateChangeListener(
+			OnCheckBoxStateChangeListener listener) {
+		this.listener = listener;
 	}
 
 	/**
@@ -273,8 +294,8 @@ public class CustomCheckBox extends RelativeLayout {
 
 		nameTextView.setText(name);
 		setSuitableSummary();
-		
-		if(icon != null)
+
+		if (icon != null)
 			iconImageView.setBackgroundDrawable(icon);
 	}
 
@@ -313,6 +334,8 @@ public class CustomCheckBox extends RelativeLayout {
 		boolean currentPref = getBooleanFromPrefs(defaultValue);
 		setBooleanInPrefs(!currentPref);
 		updateViewElements();
+		if (listener != null)
+			listener.OnCheckBoxStateChanged(!currentPref);
 	}
 
 	/**
