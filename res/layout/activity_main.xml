@@ -146,7 +146,8 @@
                 android:layout_height="wrap_content"
                 custom:defaultValue="true"
                 custom:icon="@drawable/mic"
-                custom:useSharedPrefs="false" />
+                custom:useSharedPrefs="true"
+                custom:key="audiostate" />
 
             <!-- Touch pointer -->
 
@@ -157,7 +158,8 @@
                 android:layout_height="wrap_content"
                 custom:defaultValue="true"
                 custom:icon="@drawable/touch_icon"
-                custom:useSharedPrefs="false" />
+                custom:useSharedPrefs="true"
+                custom:key="touchstate" />
 
             <!-- Duration -->
 
@@ -169,7 +171,8 @@
                 custom:defaultValue="true"
                 custom:icon="@drawable/access_time"
                 custom:summaryOff="5 min 30 sec"
-                custom:useSharedPrefs="false" />
+                custom:useSharedPrefs="true"
+                custom:key="durationstate" />
 
             <!-- Filename -->
 
