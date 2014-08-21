@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/preference_container"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content" >
+    android:layout_height="wrap_content"
+    android:padding="10dp" >
 
     <ImageView
         android:id="@+id/preference_image"
@@ -41,7 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/preference_name"
-            android:textSize="14sp" />
+            android:textSize="13sp" />
     </RelativeLayout>
 
 </RelativeLayout>
