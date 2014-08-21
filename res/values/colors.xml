@@ -4,6 +4,10 @@
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
     <color name="transparent">#00000000</color>
+    
+    <!-- Record colors -->
+    <color name="record_touch">#CF3F30</color>
+    <color name="record_notouch">#D55648</color>
 
     <!-- Blue colors -->
     <color name="blue_1">#eaf7fc</color>

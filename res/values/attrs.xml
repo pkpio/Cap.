@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="GlobalCheckBoxPreference">
+        <attr name="name" format="string" />
+        <attr name="summary" format="string" />
+        <attr name="summaryOn" format="string" />
+        <attr name="summaryOff" format="string" />
+        <attr name="defaultValue" format="boolean" />
+        <attr name="useSharedPrefs" format="boolean" />
+        <attr name="key" format="string" />
+        <attr name="icon" format="integer" />
+    </declare-styleable>
+
+</resources>

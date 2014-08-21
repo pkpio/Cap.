@@ -32,5 +32,8 @@
     <string name="filename_path">sdcard/screenrecord/</string>
     <string name="filename_value_hint">recording</string>
     <string name="filename_extension">.mp4</string>
+    
+    <string name="record_button_text">Record</string>
+    <string name="record_button_icon">record</string>
 
 </resources>
