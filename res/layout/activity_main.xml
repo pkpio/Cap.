@@ -130,49 +130,25 @@
 
             <!-- Audio -->
 
-            <LinearLayout
+            <in.co.praveenkumar.scap.views.CustomCheckBox
+                custom:name="@string/audio_record_title"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_marginTop="20dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal" >
-
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:contentDescription="@string/audio_record_icon"
-                    android:src="@drawable/mic" />
-
-                <in.co.praveenkumar.scap.views.CustomCheckBox
-                    custom:name="@string/audio_record_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    custom:defaultValue="true"
-                    custom:useSharedPrefs="false" />
-            </LinearLayout>
+                custom:defaultValue="true"
+                custom:icon="@drawable/mic"
+                custom:useSharedPrefs="false" />
 
             <!-- Touch pointer -->
 
-            <LinearLayout
+            <in.co.praveenkumar.scap.views.CustomCheckBox
+                custom:name="@string/touch_pointer_title"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_marginTop="20dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal" >
-
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:contentDescription="@string/touch_pointer_icon"
-                    android:src="@drawable/touch_icon" />
-
-                <in.co.praveenkumar.scap.views.CustomCheckBox
-                    custom:name="@string/touch_pointer_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    custom:defaultValue="true"
-                    custom:useSharedPrefs="false" />
-            </LinearLayout>
+                custom:defaultValue="true"
+                custom:icon="@drawable/touch_icon"
+                custom:useSharedPrefs="false" />
 
             <!-- Duration -->
 
@@ -183,32 +159,20 @@
                 android:gravity="center_vertical"
                 android:orientation="vertical" >
 
-                <LinearLayout
+                <in.co.praveenkumar.scap.views.CustomCheckBox
+                    custom:name="@string/duration_title"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal" >
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:contentDescription="@string/duration_icon"
-                        android:src="@drawable/access_time" />
-
-                    <in.co.praveenkumar.scap.views.CustomCheckBox
-                        custom:name="@string/duration_title"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        custom:defaultValue="true"
-                        custom:useSharedPrefs="false" />
-                </LinearLayout>
+                    custom:defaultValue="true"
+                    custom:icon="@drawable/access_time"
+                    custom:useSharedPrefs="false" />
 
                 <TextView
-                    android:visibility="gone"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:paddingLeft="40dp"
-                    android:text="@string/duration_value" />
+                    android:text="@string/duration_value"
+                    android:visibility="gone" />
             </LinearLayout>
 
             <!-- Filename -->
@@ -280,10 +244,10 @@
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:gravity="center_horizontal"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/record_btn_bg"
                 android:clickable="true"
+                android:gravity="center_horizontal"
                 android:padding="10dp" >
 
                 <TextView
