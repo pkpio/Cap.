@@ -25,7 +25,9 @@ public class SuTask extends AsyncTask<Boolean, Void, Boolean> {
 
 			//avoid superuser toast recording
 			Thread.sleep(5000);
-			
+
+			AudioRecorder ar = new AudioRecorder();
+			ar.startRecording();
 			outputStream.write(mCommand);
 			outputStream.flush();
 			outputStream.close();
@@ -35,6 +37,7 @@ public class SuTask extends AsyncTask<Boolean, Void, Boolean> {
 			 */
 			
 			sh.waitFor();
+			ar.stopRecording();
 			return true;
 
 		} catch (InterruptedException e) {

@@ -1,13 +1,18 @@
 package in.co.praveenkumar.scap.activities;
 
 import in.co.praveenkumar.scap.R;
+import in.co.praveenkumar.scap.helpers.AudioRecorder;
 import in.co.praveenkumar.scap.helpers.DrawerActivity;
 import in.co.praveenkumar.scap.helpers.SuTask;
 import in.co.praveenkumar.scap.views.CustomCheckBox;
 import in.co.praveenkumar.scap.views.CustomCheckBox.OnCheckBoxStateChangeListener;
 
 import java.io.UnsupportedEncodingException;
+import java.util.Calendar;
 
+import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.DisplayMetrics;
@@ -15,6 +20,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.SeekBar;
@@ -37,6 +43,9 @@ public class MainActivity extends DrawerActivity {
 	String resolution;
 	int timeLimit = 30;// 60 * 60;
 	String fileName;
+	Boolean isAudio = false;
+	Boolean isTouch =  false;
+	Boolean isTimelimit = false;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -75,7 +84,7 @@ public class MainActivity extends DrawerActivity {
 
 		@Override
 		public void OnCheckBoxStateChanged(boolean isChecked) {
-			// TODO Auto-generated method stub
+			isAudio = isChecked;
 			Log.d("Stater", "State changed bro.");
 
 		}
@@ -85,6 +94,7 @@ public class MainActivity extends DrawerActivity {
 
 		@Override
 		public void OnCheckBoxStateChanged(boolean isChecked) {
+			isTouch = isChecked;
 			Settings.System.putInt(getContentResolver(), "show_touches",
 					isChecked ? 1 : 0);
 
@@ -96,10 +106,33 @@ public class MainActivity extends DrawerActivity {
 		@Override
 		public void OnCheckBoxStateChanged(boolean isChecked) {
 			// TODO Auto-generated method stub
+			isTimelimit = isChecked;
 			Log.d("Stater", "State changed bro.");
+			DialogFragment newFragment = new DatePickerFragment();
+			newFragment.show(getFragmentManager(), "datePicker");
 
 		}
 	};
+
+	public static class DatePickerFragment extends DialogFragment implements
+			DatePickerDialog.OnDateSetListener {
+
+		@Override
+		public Dialog onCreateDialog(Bundle savedInstanceState) {
+			// Use the current date as the default date in the picker
+			final Calendar c = Calendar.getInstance();
+			int year = c.get(Calendar.YEAR);
+			int month = c.get(Calendar.MONTH);
+			int day = c.get(Calendar.DAY_OF_MONTH);
+
+			// Create a new instance of DatePickerDialog and return it
+			return new DatePickerDialog(getActivity(), this, year, month, day);
+		}
+
+		public void onDateSet(DatePicker view, int year, int month, int day) {
+			// Do something with the date chosen by the user
+		}
+	}
 
 	OnSeekBarChangeListener bitrateListener = new OnSeekBarChangeListener() {
 
