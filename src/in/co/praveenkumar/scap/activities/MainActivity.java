@@ -44,7 +44,7 @@ public class MainActivity extends DrawerActivity {
 	int timeLimit = 30;// 60 * 60;
 	String fileName;
 	Boolean isAudio = false;
-	Boolean isTouch =  false;
+	Boolean isTouch = false;
 	Boolean isTimelimit = false;
 
 	@Override
@@ -85,8 +85,6 @@ public class MainActivity extends DrawerActivity {
 		@Override
 		public void OnCheckBoxStateChanged(boolean isChecked) {
 			isAudio = isChecked;
-			Log.d("Stater", "State changed bro.");
-
 		}
 	};
 

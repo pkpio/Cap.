@@ -296,7 +296,7 @@ public class CustomCheckBox extends RelativeLayout {
 		setSuitableSummary();
 
 		if (icon != null)
-			iconImageView.setBackgroundDrawable(icon);
+			iconImageView.setImageDrawable(icon);
 	}
 
 	private boolean getBooleanFromPrefs(boolean defaultValue) {
