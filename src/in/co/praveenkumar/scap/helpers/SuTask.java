@@ -36,6 +36,7 @@ public class SuTask extends AsyncTask<Boolean, Void, Boolean> {
 			 * -TODO- Add a notification here
 			 */
 			
+			
 			sh.waitFor();
 			ar.stopRecording();
 			return true;

@@ -1,8 +1,6 @@
 package in.co.praveenkumar.scap.activities;
 
 import in.co.praveenkumar.scap.R;
-import in.co.praveenkumar.scap.helpers.AudioRecorder;
-import in.co.praveenkumar.scap.helpers.DrawerActivity;
 import in.co.praveenkumar.scap.helpers.SuTask;
 import in.co.praveenkumar.scap.views.CustomCheckBox;
 import in.co.praveenkumar.scap.views.CustomCheckBox.OnCheckBoxStateChangeListener;
@@ -10,6 +8,8 @@ import in.co.praveenkumar.scap.views.CustomCheckBox.OnCheckBoxStateChangeListene
 import java.io.UnsupportedEncodingException;
 import java.util.Calendar;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
@@ -18,7 +18,6 @@ import android.provider.Settings;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -27,7 +26,7 @@ import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 
-public class MainActivity extends DrawerActivity {
+public class MainActivity extends Activity {
 	SeekBar bitrateSeekBar;
 	TextView bitrateTextView;
 	EditText resolutionHeightTextView;
@@ -49,9 +48,8 @@ public class MainActivity extends DrawerActivity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.recording_layout);
 		super.onCreate(savedInstanceState);
-
 		setUpViews();
 	}
 
@@ -160,15 +158,7 @@ public class MainActivity extends DrawerActivity {
 		return true;
 	}
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
-
+	@SuppressLint("SdCardPath")
 	public void recordButtonClick(View v) {
 		try {
 			StringBuilder stringBuilder = new StringBuilder(
@@ -178,6 +168,8 @@ public class MainActivity extends DrawerActivity {
 			resolution = resolutionWidthTextView.getText().toString() + "x"
 					+ resolutionHeightTextView.getText().toString();
 			fileName = fileNameEditText.getText().toString();
+			if (fileName.contentEquals(""))
+				fileName = "recording";
 
 			stringBuilder.append(" --size ").append(resolution);
 			stringBuilder.append(" --bit-rate ").append(bitrate * 1000000);
